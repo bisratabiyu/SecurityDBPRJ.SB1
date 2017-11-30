@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.Arrays;
 
 public class UserService {

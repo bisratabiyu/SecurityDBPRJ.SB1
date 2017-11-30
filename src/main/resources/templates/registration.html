@@ -5,12 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<form action="#" th:action="@{/register}" method="post">
-    First Name:<input type="text" name="firstname" /><br/>
-    Last Name:<input type="text" name="lastname" /><br/>
-    Email:<input type="text" name="email" /><br/>
-    User Name:<input type="text" name="username" /><br/>
-    Password:<input type="password" name="password" /><br/>
+<h4>User Registration</h4>
+<form action="#" th:action="@{/register}" th:object="$(user)" method="post">
+    First Name:<input type="text" id="firstname" th:field="*(firstname)"/><br/>
+    Last Name:<input type="text" id="lastname" th:field="*(lastname)"/><br/>
+    Email:<input type="text" id="email" th:field="*(email)"/><br/>
+    User Name:<input type="text" id="username" th:field="*(username)"/><br/>
+    Password:<input type="password" id="password" th:field="*(password)"/><br/>
     <input type="submit" name="Submit" />
 </form>
 </body>

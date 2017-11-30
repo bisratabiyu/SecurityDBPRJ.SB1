@@ -16,7 +16,7 @@ import java.util.Set;
 @Controller
 public class HomeController {
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
     UserRepository userRepository;
