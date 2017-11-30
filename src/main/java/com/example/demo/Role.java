@@ -12,6 +12,13 @@ public class Role {
     @NotNull
     private String role;
 
+    public Role(String role) {
+        this.role = role;
+    }
+
+    public Role() {
+    }
+
     @ManyToMany(mappedBy = "roles",fetch = FetchType.LAZY)
     private Collection<User> users;
 

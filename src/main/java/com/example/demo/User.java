@@ -22,6 +22,18 @@ public class User {
     @NotNull
     private String password;
 
+    public User(String email, String firstname, String lastname, boolean enabled, String username, String password) {
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.enabled = enabled;
+        this.username = username;
+        this.password = password;
+    }
+
+    public User() {
+    }
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(joinColumns = @JoinColumn(name="user_id"),
             inverseJoinColumns = @JoinColumn(name="role_id")

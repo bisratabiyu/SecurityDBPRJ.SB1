@@ -22,6 +22,7 @@ public class SSUserDetailsService implements UserDetailsService{
 {
     try{
         User user= userRepository.findByUsername(username);
+        System.out.println("User Bisrat Test - " + user.getUsername());
         if(user == null){
             return null;
         }
