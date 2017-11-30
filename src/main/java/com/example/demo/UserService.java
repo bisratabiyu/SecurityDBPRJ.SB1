@@ -1,8 +1,12 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.Arrays;
 
+@Service
 public class UserService {
     @Autowired
     UserRepository userRepository;
@@ -11,7 +15,6 @@ public class UserService {
     RoleRepository roleRepository;
 
     @Autowired
-
     public UserService(UserRepository userRepository) {
         this.userRepository =userRepository;
     }
