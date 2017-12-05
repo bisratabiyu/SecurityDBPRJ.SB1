@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <head th:replace="base :: headstuff"></head>
 </head>
 <body>
-<h3>Secure Page : only for Admin</h3>
-<a href="/logout">logout</a>
+<nav th:replace="base :: navbar"></nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1>You have reached the secure page</h1>
+        <p>...</p>
+        <p><a class="btn btn-primary btn-lg"
+              href="/" role="button">Go to Home</a>
+        </p>
+    </div>
+</div>
+
+
+<nav th:replace="base :: footer"></nav>
+<th:block th:replace="base :: jslinks"></th:block>
 </body>
 </html>

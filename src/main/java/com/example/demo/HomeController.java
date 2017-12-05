@@ -16,6 +16,8 @@ import java.util.Set;
 @Controller
 public class HomeController {
     @Autowired
+    UserValidator userValidator;
+    @Autowired
     private UserService userService;
 
     @Autowired
@@ -23,6 +25,7 @@ public class HomeController {
 
     @Autowired
     RoleRepository roleRepository;
+
 
     @RequestMapping("/")
     public String index()
@@ -54,6 +57,7 @@ public class HomeController {
     @PostMapping ("/register")
     public String postregister(@Valid @ModelAttribute("user") User user, BindingResult result, Model model)
     {
+        userValidator.validate(user,result);
         model.addAttribute("user",user);
         if(result.hasErrors()){
             return "registration";

@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
+    <head th:replace="base :: headstuff"></head>
 </head>
+
 <body>
-<h2>Insecure page</h2>
-<a href="/login">login</a>
 
-<a href="/logout">logout</a>
+<nav th:replace="base :: navbar"></nav>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Hello, world!</h1>
+        <p>...</p>
+        <p><a class="btn btn-primary btn-lg"
+              href="/secure" role="button">Go to Secure</a>
+        </p>
+    </div>
+</div>
 
-<a href="/register">Register</a>
+<nav th:replace="base :: footer"></nav>
+<th:block th:replace="base :: jslinks"></th:block>
+
 
 </body>
+
 </html>
