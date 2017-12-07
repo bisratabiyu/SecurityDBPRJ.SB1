@@ -9,7 +9,10 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import java.nio.file.AccessDeniedException;
 
 @Configuration
 @EnableWebSecurity
@@ -20,6 +23,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private AccessDeniedHandler accessDeniedException;
 
     @Override
     public UserDetailsService userDetailsServiceBean() throws Exception{
@@ -40,6 +46,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/").permitAll()
+                .and()
+                .exceptionHandling().accessDeniedHandler(accessDeniedException)
                 .and()
                 .httpBasic();
         http

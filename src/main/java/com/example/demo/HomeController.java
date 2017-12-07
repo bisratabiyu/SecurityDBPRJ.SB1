@@ -30,14 +30,17 @@ public class HomeController {
     @RequestMapping("/")
     public String index()
     {
-        return "index";
+        return "index2";
     }
     @RequestMapping("/login")
     public String login()
     {
         return "login";
     }
-
+    @GetMapping("/403")
+    public String error403() {
+        return "Error403";
+    }
     @RequestMapping("/secure")
     public String secure()
     {
